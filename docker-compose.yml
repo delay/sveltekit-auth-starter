@@ -16,7 +16,7 @@ services:
       # redirect http traffic to https
       - 'traefik.http.routers.sveltekit_auth_starter.entrypoints=http'
       # this rule redirects both the root domain and the www subdomain
-      - 'traefik.http.routers.sveltekit_auth_starter.rule=Host(`${DOMAIN}`)'
+      # - 'traefik.http.routers.sveltekit_auth_starter.rule=Host(`${DOMAIN}`)'
       # uncomment if you don't want to add the www subdomain and comment out above line.
       - 'traefik.http.routers.sveltekit_auth_starter.rule=Host(`${DOMAIN}`)'
       - 'traefik.http.middlewares.sveltekit_auth_starter-https-redirect.redirectscheme.scheme=https'
@@ -24,7 +24,7 @@ services:
       # setup https domain to forward to container
       - 'traefik.http.routers.sveltekit_auth_starter-secure.entrypoints=https'
       # this rule redirects both the root domain and the www subdomain
-      - 'traefik.http.routers.sveltekit_auth_starter-secure.rule=Host(`${DOMAIN}`)'
+      # - 'traefik.http.routers.sveltekit_auth_starter-secure.rule=Host(`${DOMAIN}`)'
       # uncomment if you don't want to add the www subdomain and comment out above line.
       - 'traefik.http.routers.sveltekit_auth_starter-secure.rule=Host(`${DOMAIN}`)'
       # setup our ssl certificate
