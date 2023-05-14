@@ -30,7 +30,9 @@
 	//console.log(JSON.stringify(data));
 	let initials = '';
 	onMount(() => {
-		initials = convertNameToInitials(data.user.firstName, data.user.lastName);
+		if (data?.user?.firstName && data?.user?.lastName) {
+			initials = convertNameToInitials(data?.user?.firstName, data?.user?.lastName);
+		}
 	});
 	//$: initials = convertNameToInitials(data.user.firstName, data.user.lastName);
 	$: initials = initials;
