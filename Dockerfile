@@ -12,7 +12,8 @@ RUN npm ci
 
 # remove potential security issues
 # RUN npm audit fix
-
+# prisma generate
+RUN npx prisma generate
 # build SvelteKit app
 RUN npm run build
 
