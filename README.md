@@ -11,6 +11,7 @@ This project creates an email and password user log in system and is my attempt 
 I picked [Lucia](https://lucia-auth.com/) for auth because it had great documentation and seemed to be in active development and was very full featured. It can provide authentication for OAuth providers as well. I always want to have a fallback for email and password, so that is what I chose to make for this project.
 
 [Skeleton](https://www.skeleton.dev) is another great project with a really nice development experience. Perhaps the coolest feature is it makes use of [design tokens](https://www.skeleton.dev/docs/tokens). This allows for lots of customization just by modifying the [theme.css](https://www.skeleton.dev/docs/generator).
+![skeleton themes](https://miro.medium.com/v2/resize:fit:1400/1*qo_ZLFxpaijwvOK_7vbyFw.png)
 
 [Prisma](https://www.prisma.io) is another great package and it is used for database connectivity and type safety. It works with many databases so it’s easy to change your database with one line of code. It has an easy to use ORM that cuts back on the amount of code you need to write.
 
@@ -19,6 +20,7 @@ I picked [Lucia](https://lucia-auth.com/) for auth because it had great document
 Finally [Superforms](https://superforms.vercel.app/) makes it easy to work with forms in Sveltekit. It cuts down a lot on boilerplate code when working with forms.
 
 This was the first time working with many of these packages, but they really do streamline much of the Sveltekit development process. If there are any mistakes, please open up an issue on the project. Also I was pleasantly surprised at the scores from [Google PageSpeed Insights](https://pagespeed.web.dev). This project scored a 100% in all metrics.
+![pagespeed insights metrics](https://miro.medium.com/v2/resize:fit:1400/1*SlpRE8RL3KIJW8af7P8otw.png)
 
 ## File Structure for the App
 
