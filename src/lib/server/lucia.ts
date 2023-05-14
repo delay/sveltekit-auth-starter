@@ -2,7 +2,10 @@
 import lucia from 'lucia-auth';
 import { sveltekit } from 'lucia-auth/middleware';
 import prisma from '@lucia-auth/adapter-prisma';
-import { PrismaClient } from '@prisma/client';
+//import { PrismaClient } from '@prisma/client';
+//https://github.com/prisma/prisma/issues/4816 handles docker error
+import Prisma from '@prisma/client';
+const { PrismaClient } = Prisma;
 import { dev } from '$app/environment';
 
 export const auth = lucia({
