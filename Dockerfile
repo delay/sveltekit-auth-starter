@@ -11,7 +11,7 @@ COPY . .
 RUN npm ci
 
 # remove potential security issues
-#RUN npm audit fix
+# RUN npm audit fix
 RUN npx prisma generate
 # build SvelteKit app
 RUN npm run build
@@ -32,10 +32,11 @@ COPY --from=build /app/package*.json ./
 RUN npm ci --production --ignore-scripts
 
 # remove potential security issues
-#RUN npm audit fix
+# RUN npm audit fix
 
 # copy built SvelteKit app to /app
 COPY --from=build /app/build ./
 
 # EXPOSE 443
 EXPOSE 3000
+CMD ["node", "./index.js"]
