@@ -18,7 +18,7 @@
 	];
 </script>
 
-<form method="POST" use:enhance>
+<form method="POST" action="/auth/sign-in" use:enhance>
 	<!--<SuperDebug data={$form} />-->
 	{#if $errors._errors}
 		<aside class="alert variant-filled-error mt-6">

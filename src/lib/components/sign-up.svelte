@@ -29,7 +29,7 @@
 	// $: termsValue = $form.terms as Writable<boolean>;
 </script>
 
-<form method="POST" use:enhance>
+<form method="POST" action="/auth/sign-up" use:enhance>
 	<!--<SuperDebug data={$form} />-->
 	<div class="mt-6">
 		<label class="label">
