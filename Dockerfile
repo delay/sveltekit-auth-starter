@@ -32,7 +32,7 @@ COPY --from=build /app/package*.json ./
 RUN npm ci --production --ignore-scripts
 
 # remove potential security issues
-RUN npm audit fix
+#RUN npm audit fix
 
 # copy built SvelteKit app to /app
 COPY --from=build /app/build ./
