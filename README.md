@@ -1,79 +1,6 @@
 # Sveltekit Auth Starter
 
-[![Jeff McMorris](https://miro.medium.com/v2/resize:fill:88:88/0*Gk_iXz-7mDXggxtk.jpg)
-
-](https://medium.com/?source=post_page-----4e1ff139891c--------------------------------)
-
-[Jeff McMorris](https://medium.com/?source=post_page-----4e1ff139891c--------------------------------)
-
-·
-
-[Follow](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2F3a79afe75f66&operation=register&redirect=https%3A%2F%2Fjeffmcmorris.medium.com%2Fsveltekit-auth-starter-4e1ff139891c&user=Jeff+McMorris&userId=3a79afe75f66&source=post_page-3a79afe75f66----4e1ff139891c---------------------post_header-----------)
-
-6 min read·Just now
-
-\--
-
-Share
-
-This is a Sveltekit Auth Starter Project. It is an open source auth starter project utilizing [Lucia](https://lucia-auth.com/) for authentication, [Skeleton](https://www.skeleton.dev) for ui elements, [Prisma](https://www.prisma.io) for database connectivity and type safety and [Sveltekit](https://kit.svelte.dev) for the javascript framework. I also used [Zod](https://zod.dev) and [Superforms](https://superforms.vercel.app) to handle form validation and management. It has email verification, password reset, and will send an email if the user changes their email address to re-verify it. It is released as…
-jeffs-mbp-2:mediumtomarkdown delay$ node mediumtomarkdown.js
-Member-only story
-
-# Sveltekit Auth Starter
-
-[![Jeff McMorris](https://miro.medium.com/v2/resize:fill:88:88/0*Gk_iXz-7mDXggxtk.jpg)
-
-](https://medium.com/?source=post_page-----4e1ff139891c--------------------------------)
-
-[Jeff McMorris](https://medium.com/?source=post_page-----4e1ff139891c--------------------------------)
-
-·
-
-[Follow](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2F3a79afe75f66&operation=register&redirect=https%3A%2F%2Fjeffmcmorris.medium.com%2Fsveltekit-auth-starter-4e1ff139891c&user=Jeff+McMorris&userId=3a79afe75f66&source=post_page-3a79afe75f66----4e1ff139891c---------------------post_header-----------)
-
-6 min read·Just now
-
-\--
-
-Share
-
-This is a Sveltekit Auth Starter Project. It is an open source auth starter project utilizing [Lucia](https://lucia-auth.com/) for authentication, [Skeleton](https://www.skeleton.dev) for ui elements, [Prisma](https://www.prisma.io) for database connectivity and type safety and [Sveltekit](https://kit.svelte.dev) for the javascript framework. I also used [Zod](https://zod.dev) and [Superforms](https://superforms.vercel.app) to handle form validation and management. It has email verification, password reset, and will send an email if the user changes their email address to re-verify it. It is released as…
-jeffs-mbp-2:mediumtomarkdown delay$ node mediumtomarkdown.js
-Sveltekit Auth Starter
-======================
-
-[![Jeff McMorris](https://miro.medium.com/v2/resize:fill:88:88/0*Gk_iXz-7mDXggxtk.jpg)
-
-](https://medium.com/?source=post_page-----4e1ff139891c--------------------------------)
-
-[Jeff McMorris](https://medium.com/?source=post_page-----4e1ff139891c--------------------------------)
-
-·
-
-[Follow](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2F3a79afe75f66&operation=register&redirect=https%3A%2F%2Fjeffmcmorris.medium.com%2Fsveltekit-auth-starter-4e1ff139891c&user=Jeff+McMorris&userId=3a79afe75f66&source=post_page-3a79afe75f66----4e1ff139891c---------------------post_header-----------)
-
-6 min read·Just now
-
-\--
-
-Listen
-
-Share
-
 This is a Sveltekit Auth Starter Project. It is an open source auth starter project utilizing [Lucia](https://lucia-auth.com/) for authentication, [Skeleton](https://www.skeleton.dev) for ui elements, [Prisma](https://www.prisma.io) for database connectivity and type safety and [Sveltekit](https://kit.svelte.dev) for the javascript framework. I also used [Zod](https://zod.dev) and [Superforms](https://superforms.vercel.app) to handle form validation and management. It has email verification, password reset, and will send an email if the user changes their email address to re-verify it. It is released as open source under an MIT license.
-
-**Here is the source code for the project:**
-
-[
-
-## GitHub - delay/sveltekit-auth-starter: This is a sveltekit auth starter project. It is an open…
-
-### This is a sveltekit auth starter project. It is an open source auth starter project utilizing Lucia for authentication…
-
-github.com
-
-](https://github.com/delay/sveltekit-auth-starter)
 
 While creating this project, I made use of several great videos and tutorials from [Huntabyte](https://www.youtube.com/@huntabyte) and [Joy of Code](https://www.youtube.com/@JoyofCodeDev). Both have great tutorials for all things related to Sveltekit.
 
@@ -91,13 +18,13 @@ Finally [Superforms](https://superforms.vercel.app/) makes it easy to work with 
 
 This was the first time working with many of these packages, but they really do streamline much of the Sveltekit development process. If there are any mistakes, please open up an issue on the project. Also I was pleasantly surprised at the scores from [Google PageSpeed Insights](https://pagespeed.web.dev). This project scored a 100% in all metrics.
 
-# File Structure for the App
+## File Structure for the App
 
 **sample.env** — private environmental server side variables that must be set. Rename to.env and supply your personal project settings.
 
 **/prisma/schema.prisma** — holds the prism schema which is the design of your data in the app and db. Currently holds the auth schema for Lucia auth.
 
-# **/src/**
+## **/src/**
 
 **app.d.ts** — holds type definitions for lucia and can hold your additional types for other features.
 
@@ -105,13 +32,13 @@ This was the first time working with many of these packages, but they really do 
 
 **theme.postcss** — holds a custom theme for skeleton. This can be set in /routes/+layout.svelte. Comment out the theme-skeleton and add in theme.postcss. You can create your own custom theme [https://www.skeleton.dev/docs/generator](https://www.skeleton.dev/docs/generator). There are also lots of premade themes included with sveltekit. To use those, change theme-skeleton.css to theme-modern.css or another theme name.
 
-# /lib
+## /lib
 
-# /\_helpers
+## /\_helpers
 
 **convertNameToInitials.ts** — function for making initials from first and last name of user for the avatar.
 
-# **/components**
+## **/components**
 
 **footer.svelte** — footer in the app, used in /routes/+layout.svelte
 
@@ -123,7 +50,7 @@ This was the first time working with many of these packages, but they really do 
 
 **sign-up.svelte** — sign up form component used in /auth/sign-up/+page.svelte
 
-# /config
+## /config
 
 **constants.ts** — all of the public constants that do not need to be hidden server side. I prefer this to naming constants PUBLIC_WHATEVER in the .env file, which is another option. I prefer to keep my .env file with only server side env variables.
 
@@ -133,13 +60,13 @@ This was the first time working with many of these packages, but they really do 
 
 **zod-schema.ts** — holds the schema used in zod. This defines how our form data needs to be validated.
 
-# /server
+## /server
 
 **email-send.ts** — this handles our email sending with AWS SES. It only runs server side to keep your credentials hidden.
 
 **lucia.ts**\- this initializes the lucia-auth package for handling our auth functions. It also holds the extra custom fields we added to the user.
 
-# /routes
+## /routes
 
 **+layout.server.ts** — gets the user info from lucia-auth if available so we can access it in our app.
 
@@ -147,19 +74,19 @@ This was the first time working with many of these packages, but they really do 
 
 **+page.svelte**\-basic info about our app
 
-# /auth
+## /auth
 
 **+layout.svelte**\-handles our layout for the auth section.
 
-# /legal
+## /legal
 
 **+layout@.svelte** — resets our layout for the legal section so it doesn’t inherit the auth layout. add the @ at the end to do this.
 
-# /legal/terms
+## /legal/terms
 
 Holds our terms and conditions page. Do not use this for your own website as I just used ChatGPT to make this. You should consult a legal professional to develop the terms for your own app.
 
-# /legal/privacy
+## /legal/privacy
 
 Holds our privacy policy page. Do not use this for your own website as I just used ChatGPT to make this. You should consult a legal professional to develop the privacy policy for your own app.
 
