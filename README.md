@@ -1,5 +1,7 @@
 # Sveltekit Auth Starter
 
+![Sveltekit Auth User Interface](https://miro.medium.com/v2/resize:fit:4772/1*v-oJRLXc299bFOzDS-fnyA.png)
+
 This is a Sveltekit Auth Starter Project. It is an open source auth starter project utilizing [Lucia](https://lucia-auth.com/) for authentication, [Skeleton](https://www.skeleton.dev) for ui elements, [Prisma](https://www.prisma.io) for database connectivity and type safety and [Sveltekit](https://kit.svelte.dev) for the javascript framework. I also used [Zod](https://zod.dev) and [Superforms](https://superforms.vercel.app) to handle form validation and management. It has email verification, password reset, and will send an email if the user changes their email address to re-verify it. It is released as open source under an MIT license.
 
 While creating this project, I made use of several great videos and tutorials from [Huntabyte](https://www.youtube.com/@huntabyte) and [Joy of Code](https://www.youtube.com/@JoyofCodeDev). Both have great tutorials for all things related to Sveltekit.
@@ -90,58 +92,48 @@ Holds our terms and conditions page. Do not use this for your own website as I j
 
 Holds our privacy policy page. Do not use this for your own website as I just used ChatGPT to make this. You should consult a legal professional to develop the privacy policy for your own app.
 
-# /password/reset
+## /password/reset
 
 This holds the password reset form and function to send a password reset email when the user enters there email address,
 
-# /password/update-\[token\]
+## /password/update-\[token\]
 
 This allows the user to actually put in the new password, the token comes from the email from the users reset request. Anything in \[\] is able to be accessed as a parameter in Sveltekit, so \[token\] can be accessed via (token = event.params.token).
 
-# /password/update-\[token\]/success
+## /password/update-\[token\]/success
 
 This is the message the user sees if there reset was successful.
 
-# /profile
+## /profile
 
 This allows the user to update their profile with new information. If they change their email address we also un-verify them and send them an email asking them to reconfirm their email. We also send an email to their old address telling them this change was made with the old and new address so that the data can be reset manually if the users account was hacked.
 
-# /sign-in
+## /sign-in
 
 Page and functions for signing in the user.
 
-# /sign-out
+## /sign-out
 
 Function for signing out the user.
 
-# /sign-up
+## /sign-up
 
 Page and functions for signing up the user.
 
-# /verify/email
+## /verify/email
 
 This page asks user to check there email and verify it.
 
-# /verify/email-\[token\]
+## /verify/email-\[token\]
 
 This page confirms the email address by verifying the token the user received in his email account.
 
-# /verify/resend-email-\[token\]
+## /verify/resend-email-\[token\]
 
 This resends the verify email token email in case the user didn’t receive or lost the email.
 
-# /protected
+## /protected
 
 This area is only allowed to be accessed when a user is logged in.
 
 Hopefully you may find some of this code useful for your own project. Please feel free to use it in any project.
-
-[
-
-## GitHub - delay/sveltekit-auth-starter: This is a sveltekit auth starter project. It is an open…
-
-### This is a sveltekit auth starter project. It is an open source auth starter project utilizing Lucia for authentication…
-
-github.com
-
-](https://github.com/delay/sveltekit-auth-starter)
