@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  sveltekit_auth_starter:
+    container_name: sveltekit_auth_starter_${DOMAIN}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - '${SVELTEKIT_PORT}:3000'
+    restart: always
+    networks:
+      - traefik_network
+    labels:
+      - 'traefik.enable=true'
+      # redirect http traffic to https
+      - 'traefik.http.routers.sveltekit_auth_starter.entrypoints=http'
+      # this rule redirects both the root domain and the www subdomain
+      - 'traefik.http.routers.sveltekit_auth_starter.rule=Host(`${DOMAIN}`)'
+      # uncomment if you don't want to add the www subdomain and comment out above line.
+      - 'traefik.http.routers.sveltekit_auth_starter.rule=Host(`${DOMAIN}`)'
+      - 'traefik.http.middlewares.sveltekit_auth_starter-https-redirect.redirectscheme.scheme=https'
+      - 'traefik.http.routers.sveltekit_auth_starter.middlewares=sveltekit_auth_starter-https-redirect'
+      # setup https domain to forward to container
+      - 'traefik.http.routers.sveltekit_auth_starter-secure.entrypoints=https'
+      # this rule redirects both the root domain and the www subdomain
+      - 'traefik.http.routers.sveltekit_auth_starter-secure.rule=Host(`${DOMAIN}`)'
+      # uncomment if you don't want to add the www subdomain and comment out above line.
+      - 'traefik.http.routers.sveltekit_auth_starter-secure.rule=Host(`${DOMAIN}`)'
+      # setup our ssl certificate
+      - 'traefik.http.routers.sveltekit_auth_starter-secure.tls=true'
+      - 'traefik.http.routers.sveltekit_auth_starter-secure.tls.certresolver=http'
+      - 'traefik.http.routers.sveltekit_auth_starter-secure.service=sveltekit_auth_starter'
+      # tell traefik where our container internal port is
+      - 'traefik.http.services.sveltekit_auth_starter.loadbalancer.server.port=3000'
+      # tell traefik what network we are using
+      - 'traefik.docker.network=traefik_network'
+
+networks:
+  traefik_network:
+    external: true
