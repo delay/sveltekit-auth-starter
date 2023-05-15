@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 datasource db {
     provider = "postgresql"
-    url      = env("POSTGRES_PRISMA_URL")
+    url      = env("PRISMA_URL")
 }
 
 generator client {
