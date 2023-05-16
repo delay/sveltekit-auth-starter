@@ -16,7 +16,7 @@
 
 			<hr class="!border-t-2 mt-2 mb-6" />
 
-			You must be logged in to view this content.
+			If you are seeing this page. You must be logged in.
 		</div>
 	</div>
 </div>
