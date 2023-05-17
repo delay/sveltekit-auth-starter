@@ -2,6 +2,7 @@
 	import { TabGroup, Tab } from '@skeletonlabs/skeleton';
 	import SignIn from '$lib/components/sign-in.svelte';
 	import SignUp from '$lib/components/sign-up.svelte';
+	import { i } from '@inlang/sdk-js'
 	export let data;
 
 	//let tab: string = $page.params.tab;
@@ -10,8 +11,8 @@
 </script>
 
 <TabGroup justify="justify-center">
-	<Tab bind:group={tabSet} name="signInTab" value={'signIn'}>Sign In</Tab>
-	<Tab bind:group={tabSet} name="signUpTab" value={'signUp'}>Sign Up</Tab>
+	<Tab bind:group={tabSet} name="signInTab" value={'signIn'}>{i("signin")}</Tab>
+	<Tab bind:group={tabSet} name="signUpTab" value={'signUp'}>{i("signup")}</Tab>
 	<!-- Tab Panels --->
 	<svelte:fragment slot="panel">
 		{#if tabSet === 'signIn'}

@@ -5,6 +5,7 @@
 	//import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 	import { userUpdatePasswordSchema } from '$lib/config/zod-schemas';
 	import { AlertTriangle } from 'lucide-svelte';
+	import { i } from '@inlang/sdk-js';
 	export let data;
 	const { form, errors, enhance, delayed } = superForm(data.form, {
 		taintedMessage: null,
@@ -17,7 +18,7 @@
 	];
 </script>
 
-<h3>Change Your Password</h3>
+<h3>{i("auth.password.update.changePassword")}</h3>
 
 <hr class="!border-t-2 mt-2 mb-6" />
 
@@ -29,14 +30,14 @@
 			<div><AlertTriangle size="42" /></div>
 			<!-- Message -->
 			<div class="alert-message">
-				<h3 class="h3">Change Password Problem</h3>
+				<h3 class="h3">{i("auth.password.update.passwordProblem")}</h3>
 				<p>{$errors._errors}</p>
 			</div>
 		</aside>
 	{/if}
 	<div class="mt-6">
 		<label class="label">
-			<span class="sr-only">Password</span>
+			<span class="sr-only">{i("password")}</span>
 			<input
 				id="password"
 				name="password"
@@ -54,7 +55,7 @@
 	</div>
 	<div class="mt-6">
 		<label class="label">
-			<span class="sr-only">Password</span>
+			<span class="sr-only">{i("password")}</span>
 			<input
 				id="confirmPassword"
 				name="confirmPassword"
@@ -73,7 +74,7 @@
 
 	<div class="mt-6">
 		<button type="submit" class="btn variant-filled-primary w-full"
-			>{#if $delayed}<ConicGradient stops={conicStops} spin width="w-6" />{:else}Update Password{/if}</button
+			>{#if $delayed}<ConicGradient stops={conicStops} spin width="w-6" />{:else}{i("auth.password.update.updatePassword")}{/if}</button
 		>
 	</div>
 </form>

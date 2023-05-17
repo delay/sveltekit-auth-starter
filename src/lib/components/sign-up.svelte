@@ -4,7 +4,7 @@
 	import { userSchema } from '$lib/config/zod-schemas';
 	import { ConicGradient } from '@skeletonlabs/skeleton';
 	import type { ConicStop } from '@skeletonlabs/skeleton';
-
+	import { i } from "@inlang/sdk-js";
 	export let data;
 
 	const signUpSchema = userSchema.pick({
@@ -33,12 +33,12 @@
 	<!--<SuperDebug data={$form} />-->
 	<div class="mt-6">
 		<label class="label">
-			<span class="sr-only">First Name</span>
+			<span class="sr-only">{i("First Name")}</span>
 			<input
 				id="firstName"
 				name="firstName"
 				type="text"
-				placeholder="First Name"
+				placeholder="{i("firstName")}"
 				autocomplete="given-name"
 				data-invalid={$errors.firstName}
 				bind:value={$form.firstName}
@@ -52,12 +52,12 @@
 	</div>
 	<div class="mt-6">
 		<label class="label">
-			<span class="sr-only">Last Name</span>
+			<span class="sr-only">{i("lastName")}</span>
 			<input
 				id="lastName"
 				name="lastName"
 				type="text"
-				placeholder="Last Name"
+				placeholder="{i("lastName")}"
 				autocomplete="family-name"
 				data-invalid={$errors.lastName}
 				bind:value={$form.lastName}
@@ -71,12 +71,12 @@
 	</div>
 	<div class="mt-6">
 		<label class="label">
-			<span class="sr-only">Email address</span>
+			<span class="sr-only">{i("email")}</span>
 			<input
 				id="email"
 				name="email"
 				type="email"
-				placeholder="Email address"
+				placeholder="{i("email")}"
 				autocomplete="email"
 				data-invalid={$errors.email}
 				bind:value={$form.email}
@@ -91,12 +91,12 @@
 
 	<div class="mt-6">
 		<label class="label">
-			<span class="sr-only">Password</span>
+			<span class="sr-only">{i("password")}</span>
 			<input
 				id="password"
 				name="password"
 				type="password"
-				placeholder="Password"
+				placeholder="{i("password")}"
 				data-invalid={$errors.password}
 				bind:value={$form.password}
 				class="input"
@@ -123,7 +123,7 @@
 	</div>
 	<div class="mt-6">
 		<button type="submit" disabled={!termsAccept} class="btn variant-filled-primary w-full"
-			>{#if $delayed}<ConicGradient stops={conicStops} spin width="w-6" />{:else}Sign Up{/if}</button
+			>{#if $delayed}<ConicGradient stops={conicStops} spin width="w-6" />{:else}{i("signup")}{/if}</button
 		>
 	</div>
 </form>

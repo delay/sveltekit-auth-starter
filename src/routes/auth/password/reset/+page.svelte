@@ -5,6 +5,7 @@
 	//import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 	import { userSchema } from '$lib/config/zod-schemas';
 	import { AlertTriangle } from 'lucide-svelte';
+	import { i } from '@inlang/sdk-js';
 	export let data;
 	const resetPasswordSchema = userSchema.pick({ email: true });
 	const { form, errors, enhance, delayed } = superForm(data.form, {
@@ -30,14 +31,14 @@
 			<div><AlertTriangle size="42" /></div>
 			<!-- Message -->
 			<div class="alert-message">
-				<h3 class="h3">Reset Password Problem</h3>
+				<h3 class="h3">{i('auth.password.reset.resetProblem')}</h3>
 				<p>{$errors._errors}</p>
 			</div>
 		</aside>
 	{/if}
 	<div class="mt-6">
 		<label class="label">
-			<span class="sr-only">Email address</span>
+			<span class="sr-only">{i('email')}</span>
 			<input
 				id="email"
 				name="email"
@@ -57,8 +58,11 @@
 
 	<div class="mt-6">
 		<button type="submit" class="btn variant-filled-primary w-full"
-			>{#if $delayed}<ConicGradient stops={conicStops} spin width="w-6" />{:else}Send Password Reset
-				Email{/if}</button
+			>{#if $delayed}
+				<ConicGradient stops={conicStops} spin width="w-6" />
+			{:else}
+				{i('auth.password.reset.sendResetEmail')}
+			{/if}</button
 		>
 	</div>
 </form>

@@ -1,0 +1,37 @@
+{
+  "signin": "Sign In",
+  "signinProblem": "Sign In Problem",
+  "signup": "Sign Up",
+  "signout": "Sign Out",
+  "forgotPassword": "Forgot Password?",
+  "contact": "Contact",
+  "privacy": "Privacy",
+  "terms": "Terms",
+  "email": "Email Address",
+  "password": "Password",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "profile": "Profile",
+  "home": "Home",
+  "protected": "Protected",
+  "auth": {
+    "password": {
+      "reset": {
+        "success": {
+          "emailSent": "Password Reset Email Sent",
+          "checkEmail": "Check your email account for a link to reset your password. If it doesn’t appear within a few minutes, check your spam folder."
+        },
+        "resetProblem": "Reset Password Problem",
+        "sendResetEmail": "Send Password Reset Email"
+      },
+      "update": {
+        "success": {
+          "updated": "Password updated successfully"
+        },
+        "changePassword": "Change Your Password",
+        "passwordProblem": "Change Password Problem",
+        "updatePassword": "Update Password"
+      }
+    }
+  }
+}
