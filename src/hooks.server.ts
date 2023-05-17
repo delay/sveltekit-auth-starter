@@ -27,11 +27,6 @@ export const handleError: HandleServerError = ({ error, event }) => {
 /* end sentry.io */
 
 export const handle: Handle = async ({ event, resolve }) => {
-	// if directed to the auth directory, skip the auth check
-	if (event.request.url.startsWith('/auth')) {
-		return resolve(event);
-	}
-
 	event.locals.auth = auth.handleRequest(event);
 	return await resolve(event);
 };
