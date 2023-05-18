@@ -1,7 +1,5 @@
 <script lang="ts">
 	import Logo from '$lib/components/logo.svelte';
-	import type { PageData } from './$types';
-	export let data: PageData;
 </script>
 
 <div class="flex flex-col justify-center px-6 py-12 lg:px-8 mx-auto max-w-2xl">
@@ -19,12 +17,6 @@
 			<hr class="!border-t-2 mt-2 mb-6" />
 
 			If you are seeing this page, you are logged in.
-
-			{#if data}
-				<pre>{JSON.stringify(data.props.customers, null, 2)}</pre>
-			{:else}
-				<p>There is no data.</p>
-			{/if}
 		</div>
 	</div>
 </div>
