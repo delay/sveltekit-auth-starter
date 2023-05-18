@@ -1,0 +1,36 @@
+{
+  "signin": "Anmelden",
+  "signup": "Registrieren",
+  "signout": "Abmelden",
+  "forgotPassword": "Passwort vergessen?",
+  "contact": "Kontakt",
+  "privacy": "Datenschutz",
+  "terms": "Nutzungsbedingungen",
+  "email": "E-Mail-Adresse",
+  "password": "Passwort",
+  "firstName": "Vorname",
+  "lastName": "Nachname",
+  "profile": "Profil",
+  "home": "Startseite",
+  "protected": "Geschützt",
+  "auth": {
+    "password": {
+      "reset": {
+        "success": {
+          "emailSent": "Passwort zurücksetzen E-Mail gesendet",
+          "checkEmail": "Überprüfen Sie Ihr E-Mail-Konto auf einen Link zum Zurücksetzen Ihres Passworts. Wenn er nicht innerhalb weniger Minuten angezeigt wird, überprüfen Sie Ihren Spam-Ordner."
+        },
+        "resetProblem": "Problem beim Zurücksetzen des Passworts",
+        "sendResetEmail": "Passwort-Zurücksetzen-E-Mail senden"
+      },
+      "update": {
+        "success": {
+          "updated": "Passwort erfolgreich aktualisiert"
+        },
+        "changePassword": "Ändern Sie Ihr Passwort",
+        "passwordProblem": "Problem beim Passwortwechsel",
+        "updatePassword": "Passwort aktualisieren"
+      }
+    }
+  }
+}

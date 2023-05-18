@@ -1,0 +1,36 @@
+{
+  "signin": "Iniciar sesión",
+  "signup": "Registrarse",
+  "signout": "Cerrar sesión",
+  "forgotPassword": "¿Olvidaste tu contraseña?",
+  "contact": "Contacto",
+  "privacy": "Privacidad",
+  "terms": "Términos",
+  "email": "Dirección de correo electrónico",
+  "password": "Contraseña",
+  "firstName": "Nombre",
+  "lastName": "Apellido",
+  "profile": "Perfil",
+  "home": "Inicio",
+  "protected": "Protegido",
+  "auth": {
+    "password": {
+      "reset": {
+        "success": {
+          "emailSent": "Correo electrónico de restablecimiento de contraseña enviado",
+          "checkEmail": "Verifique su cuenta de correo electrónico para obtener un enlace para restablecer su contraseña. Si no aparece en unos minutos, verifique su carpeta de correo no deseado."
+        },
+        "resetProblem": "Problema al restablecer la contraseña",
+        "sendResetEmail": "Enviar correo electrónico de restablecimiento de contraseña"
+      },
+      "update": {
+        "success": {
+          "updated": "Contraseña actualizada correctamente"
+        },
+        "changePassword": "Cambiar contraseña",
+        "passwordProblem": "Problema al cambiar la contraseña",
+        "updatePassword": "Actualizar contraseña"
+      }
+    }
+  }
+}
