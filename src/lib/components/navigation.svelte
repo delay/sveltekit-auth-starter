@@ -2,8 +2,7 @@
 	import { LightSwitch, dataTableHandler } from '@skeletonlabs/skeleton';
 	import { enhance } from '$app/forms';
 	import { drawerStore } from '@skeletonlabs/skeleton';
-	import { Prisma } from '@prisma/client';
-	import { i, languages, switchLanguage } from '@inlang/sdk-js';
+	import { i, languages, language, switchLanguage } from '@inlang/sdk-js';
 
 	function drawerClose(): void {
 		drawerStore.close();
@@ -11,12 +10,28 @@
 	import { LogIn, LogOut, Contact2, UserCircle2, Lock } from 'lucide-svelte';
 	import Logo from '$lib/components/logo.svelte';
 	export let user: any;
+	let selectedLanguage: string = language || 'en';
 </script>
 
 <nav class="list-nav p-4">
-	<div class="float-right">
-		<LightSwitch />
+	<div class="flex flex-row justify-between items-center">
+		<div class="">
+			<select
+				class="select"
+				bind:value={selectedLanguage}
+				size="1"
+				on:change={() => switchLanguage(selectedLanguage)}
+			>
+				{#each languages as lang}
+					<option value={lang}>{lang}</option>
+				{/each}
+			</select>
+		</div>
+		<div class="">
+			<LightSwitch />
+		</div>
 	</div>
+
 	<ul class="list mt-8">
 		<li>
 			<a href="/" on:click={drawerClose}>
@@ -61,11 +76,4 @@
 			</li>
 		{/if}
 	</ul>
-	<div class="float-right">
-		<div class="btn-group variant-filled">
-			{#each languages as lang}
-				<button on:click={() => switchLanguage(lang)}>{lang}</button>
-			{/each}
-		</div>
-	</div>
 </nav>
