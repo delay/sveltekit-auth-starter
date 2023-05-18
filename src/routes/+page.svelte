@@ -22,18 +22,20 @@
 			</div>
 
 			<hr class="!border-t-2 mt-2 mb-6" />
-
-			This is a sveltekit auth starter. It is an<a
-				href="https://github.com/delay/sveltekit-auth-starter">open source auth starter project</a
-			>
-			utilizing
-			<a href="https://lucia-auth.com/">Lucia</a> for authentication,
-			<a href="https://www.skeleton.dev/">Skeleton</a> for ui elements,
-			<a href="https://www.prisma.io/">Prisma</a>
-			for database connectivity and type safety and <a href="https://kit.svelte.dev/">Sveltekit</a> for
-			the javascript framework. It has email verification, password reset, and will send an email out
-			if the user changes their email address to re-verify it. It is released as open source under an
-			MIT license.
+			<p>
+				This is a sveltekit auth starter. It is an <a
+					href="https://github.com/delay/sveltekit-auth-starter">open source auth starter project</a
+				>
+				utilizing
+				<a href="https://lucia-auth.com/">Lucia</a> for authentication,
+				<a href="https://www.skeleton.dev/">Skeleton</a> for ui elements,
+				<a href="https://www.prisma.io/">Prisma</a>
+				for database connectivity and type safety, <a href="https://lucide.dev/">Lucide</a> for
+				icons, <a href="https://inlang.com/">Inlang</a> for internationalization and
+				<a href="https://kit.svelte.dev/">Sveltekit</a> for the javascript framework. It has email verification,
+				password reset, and will send an email out if the user changes their email address to re-verify
+				it. It is released as open source under an MIT license.
+			</p>
 		</div>
 	</div>
 </div>
