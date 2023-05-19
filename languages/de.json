@@ -12,7 +12,7 @@
   "lastName": "Nachname",
   "profile": "Profil",
   "home": "Startseite",
-  "protected": "Geschützt",
+  "dashboard": "Armaturenbrett",
   "auth": {
     "password": {
       "reset": {
