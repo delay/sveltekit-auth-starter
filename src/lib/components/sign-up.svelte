@@ -112,9 +112,9 @@
 			<input id="terms" name="terms" type="checkbox" class="checkbox" bind:checked={termsAccept} />
 			<span class="ml-2">
 				I accept the
-				<a href="/auth/legal/terms" class="text-primaryHover underline">terms</a>
+				<a href="/terms" class="text-primaryHover underline">terms</a>
 				and
-				<a href="/auth/legal/privacy" class="text-primaryHover underline">privacy policy</a>
+				<a href="/privacy" class="text-primaryHover underline">privacy policy</a>
 				<!--{#if $errors.terms}
 					<small>{$errors.terms}</small>
 				{/if}-->

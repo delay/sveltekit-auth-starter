@@ -5,6 +5,6 @@
 
 <div class="flex flex-row justify-center m-8">
 	<a href="mailto:{CONTACT_EMAIL}" class="px-4">{i("contact")}</a> |
-	<a href="/auth/legal/privacy" class="px-4">{i("privacy")}</a> |
-	<a href="/auth/legal/terms" class="px-4">{i("terms")}</a>
+	<a href="/privacy" class="px-4">{i("privacy")}</a> |
+	<a href="/terms" class="px-4">{i("terms")}</a>
 </div>

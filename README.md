@@ -136,8 +136,8 @@ This page confirms the email address by verifying the token the user received in
 
 This resends the verify email token email in case the user didn’t receive or lost the email.
 
-## /protected
+## /(protected)
 
-This area is only allowed to be accessed when a user is logged in.
+This route group is only allowed to be accessed when a user is logged in.
 
 Hopefully you may find some of this code useful for your own project. Please feel free to use it in any project.
