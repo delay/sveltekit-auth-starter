@@ -45,7 +45,7 @@
 		</li>
 		{#if user}
 			<li>
-				<a href="/auth/profile" on:click={drawerClose}>
+				<a href="/profile" on:click={drawerClose}>
 					<span><Contact2 /></span><span class="flex-auto">{i('profile')}</span></a
 				>
 			</li>
