@@ -39,7 +39,7 @@
 			>
 		</li>
 		<li>
-			<a href="/protected" on:click={drawerClose}>
+			<a href="/dashboard" on:click={drawerClose}>
 				<span><Lock /></span><span class="flex-auto">{i('protected')}</span></a
 			>
 		</li>
