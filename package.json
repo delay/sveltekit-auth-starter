@@ -19,6 +19,7 @@
 		"@sveltejs/kit": "^1.5.0",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
+		"@types/nodemailer": "^6.4.8",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.14",
@@ -47,6 +48,7 @@
 		"@sentry/svelte": "^7.51.0",
 		"@sveltejs/adapter-node": "^1.2.4",
 		"lucia-auth": "^1.5.0",
-		"lucide-svelte": "^0.214.0"
+		"lucide-svelte": "^0.214.0",
+		"nodemailer": "^6.9.2"
 	}
 }

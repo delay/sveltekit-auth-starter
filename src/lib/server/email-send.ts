@@ -1,103 +1,89 @@
-import { SendEmailCommand, SESClient } from '@aws-sdk/client-ses';
+import nodemailer from 'nodemailer';
+import * as aws from '@aws-sdk/client-ses';
 import {
 	FROM_EMAIL,
 	AWS_ACCESS_KEY_ID,
 	AWS_SECRET_ACCESS_KEY,
-	AWS_REGION
+	AWS_REGION,
+	AWS_API_VERSION
 } from '$env/static/private';
+//import { z } from "zod";
 export default async function sendEmail(
 	email: string,
 	subject: string,
 	bodyHtml?: string,
 	bodyText?: string
 ) {
-	/* The following example sends a formatted email: */
+	const hasAccessKeys = AWS_ACCESS_KEY_ID && AWS_SECRET_ACCESS_KEY;
 
-	if (!bodyHtml && !bodyText) {
-		throw new Error(`Error sending email: bodyHtml and bodyText cannot both be empty.`);
-	}
-	if (!email) {
-		throw new Error(`Error sending email: email cannot be empty.`);
-	}
-	if (!subject) {
-		throw new Error(`Error sending email: subject cannot be empty.`);
-	}
-
-	const from = FROM_EMAIL;
-
-	const sesClient = new SESClient({
+	const ses = new aws.SES({
+		apiVersion: AWS_API_VERSION,
 		region: AWS_REGION,
-		credentials: {
-			accessKeyId: AWS_ACCESS_KEY_ID,
-			secretAccessKey: AWS_SECRET_ACCESS_KEY
-		}
+		...(hasAccessKeys
+			? {
+					credentials: {
+						accessKeyId: AWS_ACCESS_KEY_ID || '',
+						secretAccessKey: AWS_SECRET_ACCESS_KEY || ''
+					}
+			  }
+			: {})
 	});
+
+	// create Nodemailer SES transporter
+	const transporter = nodemailer.createTransport({
+		SES: { ses, aws }
+	});
+
+	interface MailConfig {
+		recipient: string;
+		subject: string;
+		htmlMessage: string;
+	}
 
 	try {
 		if (!bodyText) {
-			const sendEmailHTMLOnly = new SendEmailCommand({
-				Destination: {
-					ToAddresses: [email]
+			transporter.sendMail(
+				{
+					from: FROM_EMAIL,
+					to: email,
+					subject: subject,
+					html: bodyHtml
 				},
-				Source: from,
-				Message: {
-					Subject: {
-						Charset: 'UTF-8',
-						Data: subject
-					},
-					Body: {
-						Html: {
-							Charset: 'UTF-8',
-							Data: bodyHtml
-						}
+				(err, info) => {
+					if (err) {
+						throw new Error(`Error sending email: ${JSON.stringify(err)}`);
 					}
 				}
-			});
-			await sesClient.send(sendEmailHTMLOnly);
+			);
 		} else if (!bodyHtml) {
-			const sendEmailTextOnly = new SendEmailCommand({
-				Destination: {
-					ToAddresses: [email]
+			transporter.sendMail(
+				{
+					from: FROM_EMAIL,
+					to: email,
+					subject: subject,
+					text: bodyText
 				},
-				Source: from,
-				Message: {
-					Subject: {
-						Charset: 'UTF-8',
-						Data: subject
-					},
-					Body: {
-						Text: {
-							Charset: 'UTF-8',
-							Data: bodyText
-						}
+				(err, info) => {
+					if (err) {
+						throw new Error(`Error sending email: ${JSON.stringify(err)}`);
 					}
 				}
-			});
-			await sesClient.send(sendEmailTextOnly);
+			);
 		} else {
-			const sendEmail = new SendEmailCommand({
-				Destination: {
-					ToAddresses: [email]
+			transporter.sendMail(
+				{
+					from: FROM_EMAIL,
+					to: email,
+					subject: subject,
+					html: bodyHtml,
+					text: bodyText
 				},
-				Source: from,
-				Message: {
-					Subject: {
-						Charset: 'UTF-8',
-						Data: subject
-					},
-					Body: {
-						Html: {
-							Charset: 'UTF-8',
-							Data: bodyHtml
-						},
-						Text: {
-							Charset: 'UTF-8',
-							Data: bodyText
-						}
+				(err, info) => {
+					if (err) {
+						throw new Error(`Error sending email: ${JSON.stringify(err)}`);
 					}
 				}
-			});
-			await sesClient.send(sendEmail);
+			);
 		}
 		console.log('E-mail sent successfully!');
 		return {
