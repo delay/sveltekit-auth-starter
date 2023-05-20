@@ -1,3 +1,3 @@
-export const load = async (event: { locals: { user: Lucia.UserAttributes } }) => {
+export const load = async (event: { locals: { user: any } }) => {
 	return { user: event.locals.user };
 };
