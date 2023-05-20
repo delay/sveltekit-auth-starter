@@ -3,6 +3,7 @@ declare global {
 	namespace App {
 		interface Locals {
 			auth: import('lucia-auth').AuthRequest;
+			user: Lucia.UserAttributes;
 		}
 	}
 }
