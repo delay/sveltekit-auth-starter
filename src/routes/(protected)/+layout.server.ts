@@ -1,6 +1,3 @@
-export const load = async (event) => {
-	const { user } = await event.locals.auth.validateUser();
-	return {
-		user
-	};
+export const load = async (event: { locals: { user: any } }) => {
+	return { user: event.locals.user };
 };
