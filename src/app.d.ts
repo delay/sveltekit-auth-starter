@@ -4,6 +4,16 @@ declare global {
 		interface Locals {
 			auth: import('lucia-auth').AuthRequest;
 			user: Lucia.UserAttributes;
+			startTimer: number;
+			error: string;
+			errorId: string;
+			errorStackTrace: string;
+			message: unknown;
+			track: unknown;
+		}
+		interface Error {
+			code?: string;
+			errorId?: string;
 		}
 	}
 }

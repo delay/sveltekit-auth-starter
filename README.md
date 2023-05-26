@@ -2,7 +2,7 @@
 
 ![Sveltekit Auth User Interface](https://miro.medium.com/v2/resize:fit:4772/1*v-oJRLXc299bFOzDS-fnyA.png)
 
-This is a Sveltekit Auth Starter Project. An example website is currently deployed [here](https://sveltekit-auth.uv-ray.com/). It is an open source auth starter project utilizing [Lucia](https://lucia-auth.com/) for authentication, [Skeleton](https://www.skeleton.dev) for ui elements, [Lucide](https://lucide.dev) for icons, [Prisma](https://www.prisma.io) for database connectivity and type safety, [inlang](https://inlang.com) for language translation and [Sveltekit](https://kit.svelte.dev) for the javascript framework. I also used [Zod](https://zod.dev) and [Superforms](https://superforms.vercel.app) to handle form validation and management. It has email verification, password reset, and will send an email if the user changes their email address to re-verify it. It is released as open source under an MIT license.
+This is a Sveltekit Auth Starter Project. An example website is currently deployed [here](https://sveltekit-auth.uv-ray.com/). It is an open source auth starter project utilizing [Lucia](https://lucia-auth.com/) for authentication, [Skeleton](https://www.skeleton.dev) for ui elements, [Lucide](https://lucide.dev) for icons, [Prisma](https://www.prisma.io) for database connectivity and type safety, [inlang](https://inlang.com) for language translation and [Sveltekit](https://kit.svelte.dev) for the javascript framework. I also used [Zod](https://zod.dev) and [Superforms](https://superforms.vercel.app) to handle form validation and management. It has email verification, password reset, and will send an email if the user changes their email address to re-verify it. It also has a custom error logging system, the results are sent to [Axiom](https://axiom.co) It is released as open source under an MIT license.
 
 While creating this project, I made use of several great videos and tutorials from [Huntabyte](https://www.youtube.com/@huntabyte) and [Joy of Code](https://www.youtube.com/@JoyofCodeDev). Both have great tutorials for all things related to Sveltekit.
 
@@ -44,6 +44,10 @@ This was the first time working with many of these packages, but they really do 
 
 **convertNameToInitials.ts** — function for making initials from first and last name of user for the avatar.
 
+**getAllUrlParams.ts** - puts any url parameters in an object to be used in our log system.
+**parseMessage** - puts event.locals.message message into object or string and for our log.
+**parseTrack** - puts event.locals.track message into object or string for our log.
+
 ## **/components**
 
 **footer.svelte** — footer in the app, used in /routes/+layout.svelte
@@ -70,7 +74,9 @@ This was the first time working with many of these packages, but they really do 
 
 **email-send.ts** — this handles our email sending with AWS SES. It only runs server side to keep your credentials hidden.
 
-**lucia.ts**\- this initializes the lucia-auth package for handling our auth functions. It also holds the extra custom fields we added to the user.
+**lucia.ts**- this initializes the lucia-auth package for handling our auth functions. It also holds the extra custom fields we added to the user.
+
+**log.ts** - This is used by our hook to get the log data and send to our log service.
 
 ## /routes
 
@@ -78,7 +84,9 @@ This was the first time working with many of these packages, but they really do 
 
 **+layout.svelte** — overall site layout which is inherited by the rest of our app.
 
-**+page.svelte**\-basic info about our app
+**+page.svelte** - basic info about our app
+
+**+error.svelte** - custom error page.
 
 ## /auth
 
