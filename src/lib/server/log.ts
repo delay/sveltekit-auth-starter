@@ -9,10 +9,6 @@ import { DOMAIN } from '$lib/config/constants';
 //@ts-ignore
 export default async function log(statusCode: number, event) {
 	try {
-		const client = new Client({
-			token: AXIOM_TOKEN,
-			orgId: AXIOM_ORG_ID
-		});
 		let level = 'info';
 		if (statusCode >= 400) {
 			level = 'error';
@@ -60,6 +56,13 @@ export default async function log(statusCode: number, event) {
 			...trackEvents
 		};
 		console.log('log: ', JSON.stringify(logData));
+		if (!AXIOM_TOKEN || !AXIOM_ORG_ID || !AXIOM_DATASET) {
+			return;
+		}
+		const client = new Client({
+			token: AXIOM_TOKEN,
+			orgId: AXIOM_ORG_ID
+		});
 		await client.ingestEvents(AXIOM_DATASET, [logData]);
 	} catch (err) {
 		throw new Error(`Error Logger: ${JSON.stringify(err)}`);
