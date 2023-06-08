@@ -16,7 +16,6 @@ export async function load({ params }) {
 				let message =
 					'A new email could not be sent. Please contact support if you feel this was an error.';
 				if (user) {
-					sendVerificationEmail(user.email, token);
 					heading = 'Email Verification Sent';
 					message =
 						'A new verification email was sent.  Please check your email for the message. (Check the spam folder if it is not in your inbox)';
@@ -25,9 +24,10 @@ export async function load({ params }) {
 							token: token
 						},
 						data: {
-							verified: true
+							verified: false
 						}
 					});
+					sendVerificationEmail(user.email, token);
 				}
 				return { heading: heading, message: message };
 			});
