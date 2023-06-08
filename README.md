@@ -72,7 +72,7 @@ This was the first time working with many of these packages, but they really do 
 
 ## /server
 
-**email-send.ts** — this handles our email sending with AWS SES. It only runs server side to keep your credentials hidden.
+**email-send.ts** — this handles our email sending with AWS SES. It only runs server side to keep your credentials hidden. It also allows you to use SMTP settings in case you are not using AWS through nodemailer.
 
 **lucia.ts**- this initializes the lucia-auth package for handling our auth functions. It also holds the extra custom fields we added to the user.
 
