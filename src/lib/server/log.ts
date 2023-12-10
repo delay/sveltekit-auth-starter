@@ -1,4 +1,4 @@
-import { Client } from '@axiomhq/axiom-node';
+import { Axiom } from '@axiomhq/js';
 import { AXIOM_TOKEN, AXIOM_ORG_ID, AXIOM_DATASET } from '$env/static/private';
 import getAllUrlParams from '$lib/_helpers/getAllUrlParams';
 import parseTrack from '$lib/_helpers/parseTrack';
@@ -59,11 +59,11 @@ export default async function log(statusCode: number, event) {
 		if (!AXIOM_TOKEN || !AXIOM_ORG_ID || !AXIOM_DATASET) {
 			return;
 		}
-		const client = new Client({
+		const client = new Axiom({
 			token: AXIOM_TOKEN,
 			orgId: AXIOM_ORG_ID
 		});
-		await client.ingestEvents(AXIOM_DATASET, [logData]);
+		client.ingest(AXIOM_DATASET, [logData]);
 	} catch (err) {
 		throw new Error(`Error Logger: ${JSON.stringify(err)}`);
 	}
