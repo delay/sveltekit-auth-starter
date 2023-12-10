@@ -1,7 +1,8 @@
 import { redirect } from '@sveltejs/kit';
 
 export const load = async (event) => {
-	const { user } = await event.locals.auth.validateUser();
+	const session = await event.locals.auth.validate();
+	const user  = session?.user;
 	if (!user) throw redirect(302, '/auth/sign-in');
 	return {
 		user

@@ -35,7 +35,7 @@ export const actions = {
 			});
 
 			if (user?.email) {
-				await auth.updateKeyPassword('emailpassword', user.email, form.data.password);
+				await auth.updateKeyPassword('email', user.email, form.data.password);
 				// need to update with new token because token is also used for verification
 				// and needs a new verification token in case user has not verified their account
 				// and already forgot their password before verifying. Now they can get a new one resent.

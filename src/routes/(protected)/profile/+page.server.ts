@@ -13,11 +13,12 @@ const profileSchema = userSchema.pick({
 
 export const load = async (event) => {
 	const form = await superValidate(event, profileSchema);
-	const { user } = await event.locals.auth.validateUser();
+	const session = await event.locals.auth.validate();
+	const user  = session?.user;
 	form.data = {
-		firstName: user.firstName,
-		lastName: user.lastName,
-		email: user.email
+		firstName: user?.firstName,
+		lastName: user?.lastName,
+		email: user?.email
 	};
 	return {
 		form
@@ -38,16 +39,17 @@ export const actions = {
 		//add user to db
 		try {
 			console.log('updating profile');
-			const { user } = await event.locals.auth.validateUser();
+			const session = await event.locals.auth.validate();
+			const user  = session?.user;
 
-			auth.updateUserAttributes(user.userId, {
+			auth.updateUserAttributes(user?.userId, {
 				firstName: form.data.firstName,
 				lastName: form.data.lastName,
 				email: form.data.email
 			});
 			//await auth.invalidateAllUserSessions(user.userId);
 
-			if (user.email !== form.data.email) {
+			if (user?.email !== form.data.email) {
 				//TODO: get emailaddress to change for prisma not just in attributes.  setUser not working... weird
 				// worse comes to worse, update the auth_key manually in the db
 				//auth.setKey(user.userId, 'emailpassword', form.data.email);
@@ -57,18 +59,18 @@ export const actions = {
 				console.log('user: ' + JSON.stringify(user));
 				await prisma.authKey.update({
 					where: {
-						id: 'emailpassword:' + user.email
+						id: 'email:' + user?.email
 					},
 					data: {
-						id: 'emailpassword:' + form.data.email
+						id: 'email:' + form.data.email
 					}
 				});
 
-				auth.updateUserAttributes(user.userId, {
+				auth.updateUserAttributes(user?.userId, {
 					verified: false
 				});
 				//await auth.invalidateAllUserSessions(user.userId);
-				await updateEmailAddressSuccessEmail(form.data.email, user.email, user.token);
+				await updateEmailAddressSuccessEmail(form.data.email, user?.email, user?.token);
 			}
 		} catch (e) {
 			console.error(e);

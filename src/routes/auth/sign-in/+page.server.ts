@@ -31,8 +31,11 @@ export const actions = {
 		//add user to db
 		try {
 			console.log('sign in user');
-			const key = await auth.useKey('emailpassword', form.data.email, form.data.password);
-			const session = await auth.createSession(key.userId);
+			const key = await auth.useKey('email', form.data.email.toLowerCase(), form.data.password);
+			const session = await auth.createSession({
+				userId: key.userId,
+				attributes: {}
+			});
 			event.locals.auth.setSession(session);
 		} catch (e) {
 			//TODO: need to return error message to client

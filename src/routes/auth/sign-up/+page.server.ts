@@ -38,13 +38,13 @@ export const actions = {
 			const token = crypto.randomUUID();
 
 			const user = await auth.createUser({
-				primaryKey: {
-					providerId: 'emailpassword',
-					providerUserId: form.data.email,
+				key: {
+					providerId: 'email',
+					providerUserId: form.data.email.toLowerCase(),
 					password: form.data.password
 				},
 				attributes: {
-					email: form.data.email,
+					email: form.data.email.toLowerCase(),
 					firstName: form.data.firstName,
 					lastName: form.data.lastName,
 					role: 'USER',
@@ -55,7 +55,7 @@ export const actions = {
 			});
 
 			await sendVerificationEmail(form.data.email, token);
-			const session = await auth.createSession(user.userId);
+			const session = await auth.createSession({ userId: user.userId, attributes: {} });
 			event.locals.auth.setSession(session);
 		} catch (e) {
 			console.error(e);
