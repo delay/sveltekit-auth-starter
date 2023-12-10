@@ -9,4 +9,4 @@
 
 Please check your email account for a message to confirm your email address for {APP_NAME}. If you
 did not receive the email,
-<a href="/auth/verify/resend-email-{data.user.token}">click here</a> to resend it.
+<a href="/auth/verify/resend-email-{encodeURIComponent(data.user.email)}">click here</a> to resend it.
