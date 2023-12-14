@@ -2,6 +2,8 @@
 
 ![Sveltekit Auth User Interface](https://miro.medium.com/v2/resize:fit:4772/1*v-oJRLXc299bFOzDS-fnyA.png)
 
+## IMPORTANT UPDATE. I recently switched UI components to [shadcn-svelte](https://www.shadcn-svelte.com/).  I made a new [starter project here](https://github.com/delay/sveltekit-auth). Any new features will be added to that project.  I will still accept bug fixes for this project.  
+
 This is a Sveltekit Auth Starter Project. An example website is currently deployed [here](https://sveltekit-auth.uv-ray.com/). It is an open source auth starter project utilizing [Lucia](https://lucia-auth.com/) for authentication, [Skeleton](https://www.skeleton.dev) for ui elements, [Lucide](https://lucide.dev) for icons, [Prisma](https://www.prisma.io) for database connectivity and type safety, [inlang](https://inlang.com) for language translation and [Sveltekit](https://kit.svelte.dev) for the javascript framework. I also used [Zod](https://zod.dev) and [Superforms](https://superforms.vercel.app) to handle form validation and management. It has email verification, password reset, and will send an email if the user changes their email address to re-verify it. It also has a custom error logging system which I wrote about in [this blog post](https://jeffmcmorris.medium.com/awesome-logging-in-sveltekit-6afa29c5892c). The log results are sent to [Axiom](https://axiom.co). It is released as open source under an MIT license.
 
 While creating this project, I made use of several great videos and tutorials from [Huntabyte](https://www.youtube.com/@huntabyte) and [Joy of Code](https://www.youtube.com/@JoyofCodeDev). Both have great tutorials for all things related to Sveltekit.
